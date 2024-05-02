@@ -59,7 +59,7 @@ def check_player_status():
     return 'checked'
 
 def get_info(playerId, playerName, gameId):
-    url = f'https://europe.api.riotgames.com/lol/match/v5/matches/EUN1_{gameId}'
+    url = f'https://europe.api.riotgames.com/lol/match/v5/matches/{gameId}'
     response = requests.get(url, headers=headers)
     r2 = requests.get(f'https://eun1.api.riotgames.com/lol/league/v4/entries/by-summoner/{playerId}', headers=headers)
     for i in r2.json():
@@ -99,7 +99,7 @@ def main():
     while True:
         check_player_status()
         print('checked')
-        time.sleep(5)
+        time.sleep(15)
 
 if __name__ == '__main__':
     main()
